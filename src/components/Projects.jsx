@@ -38,7 +38,7 @@ const Projects = () => {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              className="bg-white p-6 rounded-lg hover:shadow-lg transform transition-transform duration-300 hover:scale-105"
+              className="bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden"
               initial={{
                 opacity: 0,
                 x: project.id === 1 ? -50 : project.id === 2 ? 0 : 50,
@@ -48,11 +48,16 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: project.id * 0.1 }}
             >
               {project.image && (
-                <img src={project.image} alt={project.name} className="rounded-lg mb-4 w-full h-48 object-cover" />
+                <img src={project.image} alt={project.name} className="rounded-lg mb-4 w-full h-48 object-cover transition-transform duration-300 transform hover:scale-105" />
               )}
-              <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
-              <p className="text-white mb-4">{project.technologies}</p>
-              <Link to={project.preview} className="inline-block bg-sky-400 hover:bg-sky-600 text-white px-4 py-2 rounded-full" target="_blank" rel="noopener noreferrer">
+              <h3 className="text-2xl font-semibold mb-1">{project.name}</h3>
+              <p className="text-gray-600 mb-4">{project.technologies}</p>
+              <Link 
+                to={project.preview} 
+                className="inline-block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-full transition-colors duration-300"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 Preview
               </Link>
             </motion.div>
