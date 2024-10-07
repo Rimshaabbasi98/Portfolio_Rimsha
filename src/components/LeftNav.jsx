@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-scroll'; // Import Link from react-scroll
 import { FaHome, FaUser, FaLaptopCode, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
 
 const LeftNav = () => {
@@ -20,14 +21,19 @@ const LeftNav = () => {
 };
 
 const NavItem = ({ icon, title, href }) => (
-  <a href={href} className="group flex items-center cursor-pointer">
-    <div className="text-white text-2xl p-3 rounded-full bg-gray-800 group-hover:bg-sky-400 transition duration-300 cursor-pointer">
+  <Link 
+    to={href.substring(1)} // Remove the '#' from href for smooth scroll
+    smooth={true}
+    duration={500}
+    className="group flex items-center cursor-pointer"
+  >
+    <div className="text-white text-2xl p-3 rounded-full bg-gray-800 group-hover:bg-sky-400 transition duration-300">
       {icon}
     </div>
     <span className="ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white bg-sky-400 p-2 rounded-md">
       {title}
     </span>
-  </a>
+  </Link>
 );
 
 export default LeftNav;
