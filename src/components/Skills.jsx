@@ -29,8 +29,8 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="Skills" className="py-20 bg-gray-100 w-full h-screen">
-      <div className="container mx-auto px-4 w-4/5">
+    <section id="Skills" className="w-full h-auto md:h-screen bg-gray-200 py-12 lg:py-24">
+      <div className="container mx-auto px-4 w-[80%] md:w-4/5">
         <h2 className="text-4xl font-bold text-center mb-10">My Skills <span className="block h-1 w-24 bg-sky-400 mt-2 mx-auto rounded"></span></h2>
         <div className="space-y-8">
           {skillsData.map((skill, index) => (

@@ -5,7 +5,7 @@ import { FaHome, FaUser, FaLaptopCode, FaProjectDiagram, FaEnvelope } from 'reac
 const LeftNav = () => {
   return (
     <motion.div
-      className="fixed left-5 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-50"
+      className="fixed left-5 top-1/3 transform -translate-y-1/2 flex flex-col space-y-4 z-50"
       initial={{ x: -150, opacity: 0 }} 
       animate={{ x: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 50, damping: 20 }}

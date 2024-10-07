@@ -46,10 +46,12 @@ const ContactForm = () => {
     };
 
     return (
-        <section id="Contact" className="bg-gray-100 py-20 w-full h-screen">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-10">Contact Me<span className="block h-1 w-24 bg-sky-400 mt-2 mx-auto rounded"></span></h2>
-                <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg w-3/5 mx-auto space-y-4">
+        <section id="Contact" className="w-full h-auto md:h-screen bg-gray-200 py-12 lg:py-24">
+            <div className="container mx-auto w-[80%] px-4">
+                <h2 className="text-4xl font-bold text-center mb-10">
+                    Contact Me <span className="block h-1 w-24 bg-sky-400 mt-2 mx-auto rounded"></span>
+                </h2>
+                <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg w-full md:w-3/5 mx-auto space-y-4">
                     <div>
                         <label className="block text-lg font-medium mb-2" htmlFor="name">Name</label>
                         <input
@@ -89,12 +91,14 @@ const ContactForm = () => {
                         ></textarea>
                         {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                     </div>
-                    <div className='text-center'>          <button
-                        type="submit"
-                        className="mt-4 px-6 py-3 text-lg font-semibold text-white bg-sky-400 rounded-md hover:bg-sky-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                        Send Message
-                    </button></div>
+                    <div className='text-center'>
+                        <button
+                            type="submit"
+                            className="mt-4 px-6 py-3 text-lg font-semibold text-white bg-sky-400 rounded-md hover:bg-sky-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            Send Message
+                        </button>
+                    </div>
                     {successMessage && <p className="text-green-500 text-sm mt-4">{successMessage}</p>}
                 </form>
             </div>

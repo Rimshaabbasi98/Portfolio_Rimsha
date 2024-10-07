@@ -9,8 +9,9 @@ const About = () => {
   };
 
   return (
-    <section id="About" className="w-full h-screen bg-gray-100 py-12 lg:py-24">
-      <div className="container mx-auto px-4 w-[80%]">
+    
+    <section id="About" className="w-full h-auto md:h-screen bg-gray-200 py-12 lg:py-24">
+      <div className="container mx-auto px-4 w-full md:w-4/5">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           About Me{' '}
           <span className="block h-1 w-24 bg-sky-400 mt-2 mx-auto rounded"></span>
@@ -83,7 +84,6 @@ const About = () => {
             </div>
           </motion.div>
         </div>
-        <div className="mt-12 lg:mt-20" />
       </div>
     </section>
   );
