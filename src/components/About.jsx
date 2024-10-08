@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FaGraduationCap, FaBriefcase, FaUser } from 'react-icons/fa';
-import { motion } from 'framer-motion';
 
 const About = () => {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    
-    <section id="About" className="w-full h-auto md:h-screen bg-gray-200 py-12 lg:py-24">
+    <section
+      id="About"
+      ref={sectionRef}
+      className="w-full h-auto md:h-screen bg-gray-200 py-12 lg:py-24"
+    >
       <div className="container mx-auto px-4 w-full md:w-4/5">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           About Me{' '}
@@ -18,13 +38,8 @@ const About = () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row lg:space-x-8">
-          <motion.div
-            className="lg:w-1/2 mb-8 lg:mb-0"
-            variants={fadeIn}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.5 }}
-          >
+          {/* Left Cards */}
+          <div className={`lg:w-1/2 mb-8 lg:mb-0 ${isVisible ? 'animate-slideLeft' : ''}`}>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-semibold mb-4 flex items-center">
                 <FaUser className="text-sky-400 mr-2" /> About Me
@@ -48,15 +63,10 @@ const About = () => {
                 <p className="text-gray-700">- Aptech, Ongoing</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="lg:w-1/2"
-            variants={fadeIn}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          {/* Right Cards */}
+          <div className={`lg:w-1/2 ${isVisible ? 'animate-slideRight' : ''}`}>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-semibold mb-4 flex items-center">
                 <FaBriefcase className="text-sky-400 mr-2" /> Professional Experience
@@ -82,7 +92,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

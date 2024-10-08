@@ -22,7 +22,7 @@ const LeftNav = () => {
 
 const NavItem = ({ icon, title, href }) => (
   <Link 
-    to={href.substring(1)} // Remove the '#' from href for smooth scroll
+    to={href.substring(1)}
     smooth={true}
     duration={500}
     className="group flex items-center cursor-pointer"
