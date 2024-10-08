@@ -1,28 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
-import Portfolio from '../components/../assets/project.webp';
+// import Portfolio from '../components/../assets/project.webp';
+import Plant from '../components/../assets/Plantpalace.jfif';
+import Schoolinfo from '../components/../assets/schoolinfo.jpg';
+import Crud from '../components/../assets/CRUD.jpeg';
 
 const projects = [
   {
     id: 1,
     name: "Plant Palace",
     technologies: "MERN Stack | React.js",
-    image: Portfolio,
+    image: Plant,
     preview: "https://your-preview-url.com/plant-palace", // Replace with your project preview URL
   },
   {
     id: 2,
     name: "School's Info",
     technologies: "MERN Stack | React.js | Tailwind CSS",
-    image: Portfolio,
+    image: Schoolinfo,
     preview: "https://your-preview-url.com/schools-info", // Replace with your project preview URL
   },
   {
     id: 3,
     name: "CRUD",
     technologies: "MERN Stack | React.js | Tailwind CSS",
-    image: Portfolio,
+    image: Crud,
     preview: "https://your-preview-url.com/crud", // Replace with your project preview URL
   },
 ];
