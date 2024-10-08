@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-scroll'; // Import Link from react-scroll
+import { Link } from 'react-scroll';
 import { FaHome, FaUser, FaLaptopCode, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
 
 const LeftNav = () => {
@@ -35,5 +35,4 @@ const NavItem = ({ icon, title, href }) => (
     </span>
   </Link>
 );
-
 export default LeftNav;

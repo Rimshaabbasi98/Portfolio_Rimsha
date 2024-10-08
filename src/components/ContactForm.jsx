@@ -21,13 +21,25 @@ const ContactForm = () => {
     const validate = () => {
         const newErrors = {};
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const namePattern = /^[A-Za-z\s]+$/;
+        const emailStartsWithNumber = /^[0-9]/;
 
-        if (!formData.name) newErrors.name = 'Name is required.';
+
+        if (!formData.name) {
+            newErrors.name = 'Name is required.';
+        } else if (!namePattern.test(formData.name)) {
+            newErrors.name = 'Name should not contain numbers.';
+        }
+
+
         if (!formData.email) {
             newErrors.email = 'Email is required.';
+        } else if (emailStartsWithNumber.test(formData.email)) {
+            newErrors.email = 'Email should not start with a number.';
         } else if (!emailPattern.test(formData.email)) {
             newErrors.email = 'Email is not valid.';
         }
+
         if (!formData.message) newErrors.message = 'Message is required.';
 
         setErrors(newErrors);
@@ -48,6 +60,12 @@ const ContactForm = () => {
     return (
         <section id="Contact" className="w-full h-auto md:h-screen bg-gray-200 py-12 lg:py-24">
             <div className="container mx-auto w-[80%] px-4">
+                {/* Success Message */}
+                {successMessage && (
+                    <div className="bg-green-400 text-center text-white p-4 rounded-md mb-4">
+                        {successMessage}
+                    </div>
+                )}
                 <h2 className="text-4xl font-bold text-center mb-10">
                     Contact Me <span className="block h-1 w-24 bg-sky-400 mt-2 mx-auto rounded"></span>
                 </h2>
@@ -59,7 +77,7 @@ const ContactForm = () => {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className={`border ${errors.name ? 'border-red-500' : 'border-gray-300'} p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                            className={`border ${errors.name ? 'border-red-500' : 'border-gray-300'} p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-sky-500`}
                             placeholder="Enter your name"
                             required
                         />
@@ -72,7 +90,7 @@ const ContactForm = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className={`border ${errors.email ? 'border-red-500' : 'border-gray-300'} p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                            className={`border ${errors.email ? 'border-red-500' : 'border-gray-300'} p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-sky-500`}
                             placeholder="Enter your email"
                             required
                         />
@@ -84,7 +102,7 @@ const ContactForm = () => {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            className={`border ${errors.message ? 'border-red-500' : 'border-gray-300'} p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                            className={`border ${errors.message ? 'border-red-500' : 'border-gray-300'} p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-sky-500`}
                             rows="5"
                             placeholder="Enter your message"
                             required
@@ -94,12 +112,11 @@ const ContactForm = () => {
                     <div className='text-center'>
                         <button
                             type="submit"
-                            className="mt-4 px-6 py-3 text-lg font-semibold text-white bg-sky-400 rounded-md hover:bg-sky-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="mt-4 px-6 py-3 text-lg font-semibold text-white bg-sky-400 rounded-md hover:bg-sky-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
                         >
                             Send Message
                         </button>
                     </div>
-                    {successMessage && <p className="text-green-500 text-sm mt-4">{successMessage}</p>}
                 </form>
             </div>
         </section>
