@@ -4,13 +4,13 @@ import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaDatabase } from 'react-icons
 import { SiTailwindcss, SiMui } from 'react-icons/si';
 
 const skillsData = [
-    { name: 'HTML', percentage: 95, color: 'bg-red-600', icon: <FaHtml5 /> },
-    { name: 'CSS', percentage: 95, color: 'bg-blue-600', icon: <FaCss3Alt /> },
-    { name: 'JavaScript', percentage: 80, color: 'bg-yellow-500', icon: <FaJsSquare /> },
-    { name: 'Tailwind CSS', percentage: 90, color: 'bg-cyan-400', icon: <SiTailwindcss /> },
+    { name: 'HTML', percentage: 90, color: 'bg-red-600', icon: <FaHtml5 /> },
+    { name: 'CSS', percentage: 90, color: 'bg-blue-600', icon: <FaCss3Alt /> },
+    { name: 'JavaScript', percentage: 70, color: 'bg-yellow-500', icon: <FaJsSquare /> },
+    { name: 'Tailwind CSS', percentage: 70, color: 'bg-cyan-400', icon: <SiTailwindcss /> },
     { name: 'React.js', percentage: 80, color: 'bg-blue-500', icon: <FaReact /> },
-    { name: 'MongoDB', percentage: 80, color: 'bg-green-600', icon: <FaDatabase /> },
-    { name: 'MUI', percentage: 90, color: 'bg-purple-600', icon: <SiMui /> },
+    { name: 'MongoDB', percentage: 70, color: 'bg-green-600', icon: <FaDatabase /> },
+    { name: 'MUI', percentage: 70, color: 'bg-purple-600', icon: <SiMui /> },
 ];
 
 const Skills = () => {
@@ -46,8 +46,8 @@ const Skills = () => {
         <section
             id="skills"
             ref={sectionRef}
-            className="w-full h-auto md:h-screen bg-gray-200 py-12 lg:py-24"
-        >
+            className="w-full h-auto lg:h-screen bg-gray-200 py-12 lg:py-24"
+            >
             <div className="container mx-auto px-4 w-[80%] md:w-4/5">
                 <h2 className="text-4xl font-bold text-center mb-10">
                     My Skills
