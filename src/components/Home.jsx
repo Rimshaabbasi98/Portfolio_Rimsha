@@ -34,7 +34,7 @@ const Home = () => {
           className="text-3xl md:text-5xl font-semibold mb-6"
         />
 
-        <a href="/path-to-resume.pdf" download>
+        <a href="/Rimsha-CV.docx" download>
           <button className="mt-8 px-6 py-3 text-lg font-semibold text-white border border-white rounded hover:bg-sky-400 hover:text-black transition duration-300">
             Download Resume
           </button>

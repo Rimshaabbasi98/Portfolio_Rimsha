@@ -12,7 +12,7 @@ const projects = [
     name: "Plant Palace",
     technologies: "MERN Stack | React.js",
     image: Plant,
-    preview: "https://your-preview-url.com/plant-palace", // Replace with your project preview URL
+    preview: "https://plant-palace-beta.vercel.app/", // Replace with your project preview URL
   },
   {
     id: 2,
